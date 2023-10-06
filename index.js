@@ -1,12 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv')
 
 const app = express();
+dotenv.config()
+const password = process.env.MONGO_PASSWORD;
+
 const port = process.env.PORT || 3000;
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://deepesh85b:IewfM9KQtGg69Mog@cluster0.fajufqy.mongodb.net/registrationFormDB', {
+mongoose.connect(`mongodb+srv://deepesh85b:${password}@cluster0.fajufqy.mongodb.net/registrationFormDB`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
